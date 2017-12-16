@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class JDBCMySQLConnection {
   //static reference to itself
   private static JDBCMySQLConnection instance = new JDBCMySQLConnection();
-  public static final String URL = "jdbc:mysql://localhost/jdbcdb";
-  public static final String USER = "root";
-  public static final String PASSWORD = "203##picasso";
+  public static final String URL = "jdbc:mysql://rgift.heliohost.org:3306/rgift_data";
+  public static final String USER = "rgift_user";
+  public static final String PASSWORD = "65ytr65yY%t";
   public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 
    
   //private constructor
@@ -30,7 +30,8 @@ public class JDBCMySQLConnection {
           //Step 3: Establish Java MySQL connection
           connection = DriverManager.getConnection(URL, USER, PASSWORD);
       } catch (SQLException e) {
-          System.out.println("ERROR: Unable to Connect to Database.");
+    	  System.out.println("Unable to connect to database.");
+          e.printStackTrace();
       }
       return connection;
   }   
