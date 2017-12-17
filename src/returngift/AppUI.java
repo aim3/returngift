@@ -92,6 +92,8 @@ public class AppUI implements ActionListener, ChangeListener  {
 	 * Create the application.
 	 */
 	public AppUI() {
+		generalbrowser.getCacheStorage().clearCache();
+		forumbrowser.getCacheStorage().clearCache();
 		initialize();
 	}
 
@@ -533,6 +535,9 @@ public class AppUI implements ActionListener, ChangeListener  {
 		}
 
 	public void actionPerformed(ActionEvent e) {
+		
+		generalbrowser.getCacheStorage().clearCache();
+		forumbrowser.getCacheStorage().clearCache();
 
 		if (e.getSource() == btnSearch) {
 
