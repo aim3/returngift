@@ -1,5 +1,7 @@
 package returngift;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 //Step 1: Use interfaces from java.sql package 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,7 +21,10 @@ public class JDBCMySQLConnection {
           //Step 2: Load MySQL Java driver
           Class.forName(DRIVER_CLASS);
       } catch (ClassNotFoundException e) {
-          e.printStackTrace();
+    	  StringWriter sw = new StringWriter();
+          e.printStackTrace(new PrintWriter(sw));
+          String exceptionAsString = sw.toString();
+          AppUI.feedbacktextarea.setText(exceptionAsString);
       }
   }
    
@@ -30,8 +35,10 @@ public class JDBCMySQLConnection {
           //Step 3: Establish Java MySQL connection
           connection = DriverManager.getConnection(URL, USER, PASSWORD);
       } catch (SQLException e) {
-    	  System.out.println("Unable to connect to database.");
-          e.printStackTrace();
+          StringWriter sw = new StringWriter();
+          e.printStackTrace(new PrintWriter(sw));
+          String exceptionAsString = sw.toString();
+          AppUI.feedbacktextarea.setText("Unable to connect to database. \n" + exceptionAsString);
       }
       return connection;
   }   
