@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
@@ -20,11 +19,11 @@ import javax.swing.JTextField;
 
 public class PersonalityTest {
 
-	public static JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6,
-			lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12, lblNewLabel_13,
-			lblNewLabel_14, lblNewLabel_15, lblNewLabel_16, lblNewLabel_17, lblNewLabel_18, lblNewLabel_19,
-			lblNewLabel_20, lblNewLabel_21, lblNewLabel_22, lblNewLabel_23, lblNewLabel_24, lblNewLabel_25,
-			lblNewLabel_26, lblPersonality_1;
+	public static JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5,
+			lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12,
+			lblNewLabel_13, lblNewLabel_14, lblNewLabel_15, lblNewLabel_16, lblNewLabel_17, lblNewLabel_18,
+			lblNewLabel_19, lblNewLabel_20, lblNewLabel_21, lblNewLabel_22, lblNewLabel_23, lblNewLabel_24,
+			lblNewLabel_25, lblNewLabel_26, lblPersonality_1;
 
 	public static JRadioButton rdbtnNewRadioButton, rdbtnNewRadioButton_1, rdbtnNewRadioButton_2, rdbtnNewRadioButton_3,
 			rdbtnNewRadioButton_4, rdbtnNewRadioButton_5, rdbtnNewRadioButton_6, rdbtnNewRadioButton_7,
@@ -37,13 +36,16 @@ public class PersonalityTest {
 			rdbtnNewRadioButton_31, rdbtnNewRadioButton_32, rdbtnNewRadioButton_33, rdbtnNewRadioButton_34,
 			rdbtnNewRadioButton_35, rdbtnNewRadioButton_36, rdbtnNewRadioButton_37, rdbtnNewRadioButton_38;
 	public static JSeparator separator;
-	public static JButton btnSubmit, btnInfo;
+	public static GradientButton btnSubmit, btnInfo;
 	public static JTextField textfield;
 
 	public static void personalityTest() {
 
+		Font fontIt = new Font("Tahoma", Font.ITALIC, 14);
+		Font fontBo = new Font("Tahoma", Font.BOLD, 13);
+
 		lblPersonality_1 = new JLabel("Personality Test");
-		lblPersonality_1.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblPersonality_1.setFont(new Font("Tahoma", Font.BOLD, 26));
 		GridBagConstraints gbc_lblPersonality_1 = new GridBagConstraints();
 		gbc_lblPersonality_1.gridwidth = 5;
 		gbc_lblPersonality_1.insets = new Insets(0, 0, 5, 0);
@@ -51,8 +53,8 @@ public class PersonalityTest {
 		gbc_lblPersonality_1.gridy = 0;
 		AppUI.personalitytest.add(lblPersonality_1, gbc_lblPersonality_1);
 
-		lblNewLabel = new JLabel("© 2016 Personality Academy");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel = new JLabel("© 2016 Personality Academy ");
+		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.gridwidth = 5;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
@@ -69,6 +71,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(separator, gbc_separator);
 
 		lblNewLabel_3 = new JLabel("General Orientation: Extraversion - Introversion");
+		lblNewLabel_3.setFont(fontBo);
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_3.gridx = 8;
@@ -76,6 +79,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_3, gbc_lblNewLabel_3);
 
 		lblNewLabel_1 = new JLabel("Modes of Operation:  Planned - Spontaneous");
+		lblNewLabel_1.setFont(fontBo);
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_1.gridx = 9;
@@ -83,6 +87,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_1, gbc_lblNewLabel_1);
 
 		lblNewLabel_2 = new JLabel("Information Gathering: Hands-On - Theoretical");
+		lblNewLabel_2.setFont(fontBo);
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_2.gridx = 11;
@@ -90,6 +95,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_2, gbc_lblNewLabel_2);
 
 		lblNewLabel_4 = new JLabel("Making Decisions: Objective- Subjective");
+		lblNewLabel_4.setFont(fontBo);
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_4.gridx = 12;
@@ -117,28 +123,32 @@ public class PersonalityTest {
 		ButtonGroup group19 = new ButtonGroup();
 		ButtonGroup group20 = new ButtonGroup();
 
-		lblNewLabel_5 = new JLabel("1. Study Environment");
+		lblNewLabel_5 = new JLabel("1. Study Environment ");
+		lblNewLabel_5.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_5.gridx = 8;
 		gbc_lblNewLabel_5.gridy = 6;
 		AppUI.personalitytest.add(lblNewLabel_5, gbc_lblNewLabel_5);
 
-		lblNewLabel_8 = new JLabel("1. Packing for a Trip");
+		lblNewLabel_8 = new JLabel("1. Packing for a Trip ");
+		lblNewLabel_8.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
 		gbc_lblNewLabel_8.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_8.gridx = 9;
 		gbc_lblNewLabel_8.gridy = 6;
 		AppUI.personalitytest.add(lblNewLabel_8, gbc_lblNewLabel_8);
 
-		lblNewLabel_7 = new JLabel(" 1. Strengths");
+		lblNewLabel_7 = new JLabel(" 1. Strengths ");
+		lblNewLabel_7.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
 		gbc_lblNewLabel_7.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_7.gridx = 11;
 		gbc_lblNewLabel_7.gridy = 6;
 		AppUI.personalitytest.add(lblNewLabel_7, gbc_lblNewLabel_7);
 
-		lblNewLabel_6 = new JLabel("1. Movie-Watching");
+		lblNewLabel_6 = new JLabel("1. Movie-Watching ");
+		lblNewLabel_6.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
 		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_6.gridx = 12;
@@ -146,6 +156,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_6, gbc_lblNewLabel_6);
 
 		rdbtnNewRadioButton = new JRadioButton("prefer to study in a group having conversations");
+		rdbtnNewRadioButton.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton.insets = new Insets(0, 0, 5, 5);
@@ -154,6 +165,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton, gbc_rdbtnNewRadioButton);
 
 		rdbtnNewRadioButton_12 = new JRadioButton("prefer to study alone in a distraction free setting");
+		rdbtnNewRadioButton_12.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_12 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_12.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_12.insets = new Insets(0, 0, 5, 5);
@@ -165,6 +177,7 @@ public class PersonalityTest {
 		group1.add(rdbtnNewRadioButton_12);
 
 		rdbtnNewRadioButton_2 = new JRadioButton("pack in advance for a trip (at least the night before)");
+		rdbtnNewRadioButton_2.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_2 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_2.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_2.insets = new Insets(0, 0, 5, 5);
@@ -173,6 +186,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_2, gbc_rdbtnNewRadioButton_2);
 
 		rdbtnNewRadioButton_13 = new JRadioButton("pack the very last minute for a trip");
+		rdbtnNewRadioButton_13.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_13 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_13.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_13.insets = new Insets(0, 0, 5, 5);
@@ -184,6 +198,7 @@ public class PersonalityTest {
 		group2.add(rdbtnNewRadioButton_13);
 
 		rdbtnNewRadioButton_3 = new JRadioButton("good at building, maintaining, and operating things");
+		rdbtnNewRadioButton_3.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_3 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_3.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_3.insets = new Insets(0, 0, 5, 5);
@@ -192,6 +207,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_3, gbc_rdbtnNewRadioButton_3);
 
 		rdbtnNewRadioButton_14 = new JRadioButton("good at developing insights into creative designs");
+		rdbtnNewRadioButton_14.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_14 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_14.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_14.insets = new Insets(0, 0, 5, 5);
@@ -203,6 +219,7 @@ public class PersonalityTest {
 		group3.add(rdbtnNewRadioButton_14);
 
 		rdbtnNewRadioButton_1 = new JRadioButton("mistakes in a movie significantly lessen enjoyment");
+		rdbtnNewRadioButton_1.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_1 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_1.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_1.insets = new Insets(0, 0, 5, 0);
@@ -211,6 +228,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_1, gbc_rdbtnNewRadioButton_1);
 
 		rdbtnNewRadioButton_15 = new JRadioButton("able to look past mistakes and enjoy a movie");
+		rdbtnNewRadioButton_15.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_15 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_15.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_15.insets = new Insets(0, 0, 5, 0);
@@ -221,28 +239,32 @@ public class PersonalityTest {
 		group4.add(rdbtnNewRadioButton_1);
 		group4.add(rdbtnNewRadioButton_15);
 
-		lblNewLabel_9 = new JLabel("2. How Thoughts Form");
+		lblNewLabel_9 = new JLabel("2. How Thoughts Form ");
+		lblNewLabel_9.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_9 = new GridBagConstraints();
 		gbc_lblNewLabel_9.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_9.gridx = 8;
 		gbc_lblNewLabel_9.gridy = 9;
 		AppUI.personalitytest.add(lblNewLabel_9, gbc_lblNewLabel_9);
 
-		lblNewLabel_10 = new JLabel("2. Closure vs. Leaving Options Open");
+		lblNewLabel_10 = new JLabel("2. Closure vs. Leaving Options Open ");
+		lblNewLabel_10.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
 		gbc_lblNewLabel_10.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_10.gridx = 9;
 		gbc_lblNewLabel_10.gridy = 9;
 		AppUI.personalitytest.add(lblNewLabel_10, gbc_lblNewLabel_10);
 
-		lblNewLabel_11 = new JLabel("2. Ways of Perceiving");
+		lblNewLabel_11 = new JLabel("2. Ways of Perceiving ");
+		lblNewLabel_11.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_11 = new GridBagConstraints();
 		gbc_lblNewLabel_11.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_11.gridx = 11;
 		gbc_lblNewLabel_11.gridy = 9;
 		AppUI.personalitytest.add(lblNewLabel_11, gbc_lblNewLabel_11);
 
-		lblNewLabel_12 = new JLabel("2. Needs");
+		lblNewLabel_12 = new JLabel("2. Needs ");
+		lblNewLabel_12.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_12 = new GridBagConstraints();
 		gbc_lblNewLabel_12.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_12.gridx = 12;
@@ -250,6 +272,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_12, gbc_lblNewLabel_12);
 
 		rdbtnNewRadioButton_16 = new JRadioButton("process thoughts through conversations with others");
+		rdbtnNewRadioButton_16.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_16 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_16.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_16.insets = new Insets(0, 0, 5, 5);
@@ -258,6 +281,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_16, gbc_rdbtnNewRadioButton_16);
 
 		rdbtnNewRadioButton_20 = new JRadioButton("process thoughts inside your head");
+		rdbtnNewRadioButton_20.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_20 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_20.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_20.insets = new Insets(0, 0, 5, 5);
@@ -269,6 +293,7 @@ public class PersonalityTest {
 		group5.add(rdbtnNewRadioButton_20);
 
 		rdbtnNewRadioButton_17 = new JRadioButton("prefer to have decisions made");
+		rdbtnNewRadioButton_17.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_17 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_17.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_17.insets = new Insets(0, 0, 5, 5);
@@ -277,6 +302,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_17, gbc_rdbtnNewRadioButton_17);
 
 		rdbtnNewRadioButton_21 = new JRadioButton("prefer to keep options open as long as possible");
+		rdbtnNewRadioButton_21.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_21 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_21.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_21.insets = new Insets(0, 0, 5, 5);
@@ -288,6 +314,7 @@ public class PersonalityTest {
 		group6.add(rdbtnNewRadioButton_21);
 
 		rdbtnNewRadioButton_18 = new JRadioButton("trust only what I can see, hear, touch, taste, or smell");
+		rdbtnNewRadioButton_18.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_18 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_18.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_18.insets = new Insets(0, 0, 5, 5);
@@ -296,6 +323,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_18, gbc_rdbtnNewRadioButton_18);
 
 		rdbtnNewRadioButton_22 = new JRadioButton("comfortable using imagination and following hunches");
+		rdbtnNewRadioButton_22.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_22 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_22.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_22.insets = new Insets(0, 0, 5, 5);
@@ -307,6 +335,7 @@ public class PersonalityTest {
 		group7.add(rdbtnNewRadioButton_22);
 
 		rdbtnNewRadioButton_19 = new JRadioButton("sincere need to evaluate and improve");
+		rdbtnNewRadioButton_19.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_19 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_19.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_19.insets = new Insets(0, 0, 5, 0);
@@ -315,6 +344,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_19, gbc_rdbtnNewRadioButton_19);
 
 		rdbtnNewRadioButton_39 = new JRadioButton("sincere need to know that others care how you feel");
+		rdbtnNewRadioButton_39.setOpaque(false);
 		GridBagConstraints gbc_rdbtnSincereNeedTo = new GridBagConstraints();
 		gbc_rdbtnSincereNeedTo.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnSincereNeedTo.insets = new Insets(0, 0, 5, 0);
@@ -325,28 +355,32 @@ public class PersonalityTest {
 		group8.add(rdbtnNewRadioButton_19);
 		group8.add(rdbtnNewRadioButton_39);
 
-		lblNewLabel_13 = new JLabel("3. Speaking Style");
+		lblNewLabel_13 = new JLabel("3. Speaking Style ");
+		lblNewLabel_13.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
 		gbc_lblNewLabel_13.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_13.gridx = 8;
 		gbc_lblNewLabel_13.gridy = 13;
 		AppUI.personalitytest.add(lblNewLabel_13, gbc_lblNewLabel_13);
 
-		lblNewLabel_14 = new JLabel("3. Relationship with Schedules");
+		lblNewLabel_14 = new JLabel("3. Relationship with Schedules ");
+		lblNewLabel_14.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_14 = new GridBagConstraints();
 		gbc_lblNewLabel_14.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_14.gridx = 9;
 		gbc_lblNewLabel_14.gridy = 13;
 		AppUI.personalitytest.add(lblNewLabel_14, gbc_lblNewLabel_14);
 
-		lblNewLabel_15 = new JLabel("3. Integration");
+		lblNewLabel_15 = new JLabel("3. Integration ");
+		lblNewLabel_15.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_15 = new GridBagConstraints();
 		gbc_lblNewLabel_15.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_15.gridx = 11;
 		gbc_lblNewLabel_15.gridy = 13;
 		AppUI.personalitytest.add(lblNewLabel_15, gbc_lblNewLabel_15);
 
-		lblNewLabel_16 = new JLabel("3. Perspective");
+		lblNewLabel_16 = new JLabel("3. Perspective ");
+		lblNewLabel_16.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_16 = new GridBagConstraints();
 		gbc_lblNewLabel_16.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_16.gridx = 12;
@@ -354,6 +388,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_16, gbc_lblNewLabel_16);
 
 		rdbtnNewRadioButton_23 = new JRadioButton("fast pace, expressive tones, and large gestures");
+		rdbtnNewRadioButton_23.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_23 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_23.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_23.insets = new Insets(0, 0, 5, 5);
@@ -362,6 +397,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_23, gbc_rdbtnNewRadioButton_23);
 
 		rdbtnNewRadioButton_28 = new JRadioButton("moderate pace, quiet voice, minimal gesturing");
+		rdbtnNewRadioButton_28.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_28 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_28.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_28.insets = new Insets(0, 0, 5, 5);
@@ -373,6 +409,7 @@ public class PersonalityTest {
 		group9.add(rdbtnNewRadioButton_28);
 
 		rdbtnNewRadioButton_24 = new JRadioButton("find schedules and routines comforting");
+		rdbtnNewRadioButton_24.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_24 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_24.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_24.insets = new Insets(0, 0, 5, 5);
@@ -381,6 +418,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_24, gbc_rdbtnNewRadioButton_24);
 
 		rdbtnNewRadioButton_27 = new JRadioButton("find schedules and routines restricting");
+		rdbtnNewRadioButton_27.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_27 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_27.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_27.insets = new Insets(0, 0, 5, 5);
@@ -392,6 +430,7 @@ public class PersonalityTest {
 		group10.add(rdbtnNewRadioButton_27);
 
 		rdbtnNewRadioButton_25 = new JRadioButton("put pieces together one step at a time");
+		rdbtnNewRadioButton_25.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_25 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_25.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_25.insets = new Insets(0, 0, 5, 5);
@@ -400,6 +439,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_25, gbc_rdbtnNewRadioButton_25);
 
 		rdbtnNewRadioButton_29 = new JRadioButton("put pieces together from all directions at once");
+		rdbtnNewRadioButton_29.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_29 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_29.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_29.insets = new Insets(0, 0, 5, 5);
@@ -411,6 +451,7 @@ public class PersonalityTest {
 		group11.add(rdbtnNewRadioButton_29);
 
 		rdbtnNewRadioButton_26 = new JRadioButton("tend to debate and defend point of view");
+		rdbtnNewRadioButton_26.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_26 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_26.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_26.insets = new Insets(0, 0, 5, 0);
@@ -419,6 +460,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_26, gbc_rdbtnNewRadioButton_26);
 
 		rdbtnNewRadioButton_30 = new JRadioButton("tend to sympathize and accept other people's opinions");
+		rdbtnNewRadioButton_30.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_30 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_30.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_30.insets = new Insets(0, 0, 5, 0);
@@ -429,28 +471,32 @@ public class PersonalityTest {
 		group12.add(rdbtnNewRadioButton_26);
 		group12.add(rdbtnNewRadioButton_30);
 
-		lblNewLabel_17 = new JLabel("4. Relationship with Silence");
+		lblNewLabel_17 = new JLabel("4. Relationship with Silence ");
+		lblNewLabel_17.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_17 = new GridBagConstraints();
 		gbc_lblNewLabel_17.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_17.gridx = 8;
 		gbc_lblNewLabel_17.gridy = 16;
 		AppUI.personalitytest.add(lblNewLabel_17, gbc_lblNewLabel_17);
 
-		lblNewLabel_19 = new JLabel("4. Natural Tendency");
+		lblNewLabel_19 = new JLabel("4. Natural Tendency ");
+		lblNewLabel_19.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_19 = new GridBagConstraints();
 		gbc_lblNewLabel_19.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_19.gridx = 9;
 		gbc_lblNewLabel_19.gridy = 16;
 		AppUI.personalitytest.add(lblNewLabel_19, gbc_lblNewLabel_19);
 
-		lblNewLabel_21 = new JLabel("4. Interpretation");
+		lblNewLabel_21 = new JLabel("4. Interpretation ");
+		lblNewLabel_21.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_21 = new GridBagConstraints();
 		gbc_lblNewLabel_21.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_21.gridx = 11;
 		gbc_lblNewLabel_21.gridy = 16;
 		AppUI.personalitytest.add(lblNewLabel_21, gbc_lblNewLabel_21);
 
-		lblNewLabel_22 = new JLabel("Decision-Making");
+		lblNewLabel_22 = new JLabel("4. Decision-Making ");
+		lblNewLabel_22.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_22 = new GridBagConstraints();
 		gbc_lblNewLabel_22.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_22.gridx = 12;
@@ -458,6 +504,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_22, gbc_lblNewLabel_22);
 
 		rdbtnNewRadioButton_31 = new JRadioButton("tend to be uncomfortable with long silences around others");
+		rdbtnNewRadioButton_31.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_31 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_31.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_31.insets = new Insets(0, 0, 5, 5);
@@ -466,6 +513,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_31, gbc_rdbtnNewRadioButton_31);
 
 		rdbtnNewRadioButton_33 = new JRadioButton("appreciate silence (even around others)");
+		rdbtnNewRadioButton_33.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_33 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_33.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_33.insets = new Insets(0, 0, 5, 5);
@@ -477,6 +525,7 @@ public class PersonalityTest {
 		group13.add(rdbtnNewRadioButton_33);
 
 		rdbtnNewRadioButton_32 = new JRadioButton("crave consistency and enjoy being prepared");
+		rdbtnNewRadioButton_32.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_32 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_32.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_32.insets = new Insets(0, 0, 5, 5);
@@ -485,6 +534,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_32, gbc_rdbtnNewRadioButton_32);
 
 		rdbtnNewRadioButton_34 = new JRadioButton("crave variety and enjoy improvising");
+		rdbtnNewRadioButton_34.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_34 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_34.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_34.insets = new Insets(0, 0, 5, 5);
@@ -496,6 +546,7 @@ public class PersonalityTest {
 		group14.add(rdbtnNewRadioButton_34);
 
 		rdbtnNewRadioButton_35 = new JRadioButton("the way things appear is the way they really are");
+		rdbtnNewRadioButton_35.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_35 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_35.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_35.insets = new Insets(0, 0, 5, 5);
@@ -504,6 +555,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_35, gbc_rdbtnNewRadioButton_35);
 
 		rdbtnNewRadioButton_37 = new JRadioButton("read between the lines to discover hidden meaning");
+		rdbtnNewRadioButton_37.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_37 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_37.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_37.insets = new Insets(0, 0, 5, 5);
@@ -515,6 +567,7 @@ public class PersonalityTest {
 		group15.add(rdbtnNewRadioButton_37);
 
 		rdbtnNewRadioButton_36 = new JRadioButton("use logic to make decisions and seek clarity");
+		rdbtnNewRadioButton_36.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_36 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_36.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_36.insets = new Insets(0, 0, 5, 0);
@@ -523,6 +576,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_36, gbc_rdbtnNewRadioButton_36);
 
 		rdbtnNewRadioButton_38 = new JRadioButton("use feelings to make decisions and seek harmony");
+		rdbtnNewRadioButton_38.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_38 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_38.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_38.insets = new Insets(0, 0, 5, 0);
@@ -533,28 +587,32 @@ public class PersonalityTest {
 		group16.add(rdbtnNewRadioButton_36);
 		group16.add(rdbtnNewRadioButton_38);
 
-		lblNewLabel_18 = new JLabel("Energy Drainers and Gainers");
+		lblNewLabel_18 = new JLabel("5. Energy Drainers and Gainers ");
+		lblNewLabel_18.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_18 = new GridBagConstraints();
 		gbc_lblNewLabel_18.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_18.gridx = 8;
 		gbc_lblNewLabel_18.gridy = 19;
 		AppUI.personalitytest.add(lblNewLabel_18, gbc_lblNewLabel_18);
 
-		lblNewLabel_20 = new JLabel("5. Work Style");
+		lblNewLabel_20 = new JLabel("5. Work Style ");
+		lblNewLabel_20.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_20 = new GridBagConstraints();
 		gbc_lblNewLabel_20.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_20.gridx = 9;
 		gbc_lblNewLabel_20.gridy = 19;
 		AppUI.personalitytest.add(lblNewLabel_20, gbc_lblNewLabel_20);
 
-		lblNewLabel_23 = new JLabel("5. Outlook");
+		lblNewLabel_23 = new JLabel("5. Outlook ");
+		lblNewLabel_23.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_23 = new GridBagConstraints();
 		gbc_lblNewLabel_23.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_23.gridx = 11;
 		gbc_lblNewLabel_23.gridy = 19;
 		AppUI.personalitytest.add(lblNewLabel_23, gbc_lblNewLabel_23);
 
-		lblNewLabel_24 = new JLabel("5. Preferred Approach");
+		lblNewLabel_24 = new JLabel("5. Preferred Approach ");
+		lblNewLabel_24.setFont(fontIt);
 		GridBagConstraints gbc_lblNewLabel_24 = new GridBagConstraints();
 		gbc_lblNewLabel_24.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_24.gridx = 12;
@@ -562,6 +620,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_24, gbc_lblNewLabel_24);
 
 		rdbtnNewRadioButton_4 = new JRadioButton("I most often find interacting with others to be energizing");
+		rdbtnNewRadioButton_4.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_4 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_4.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_4.insets = new Insets(0, 0, 5, 5);
@@ -570,6 +629,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_4, gbc_rdbtnNewRadioButton_4);
 
 		rdbtnNewRadioButton_8 = new JRadioButton("I most often find interacting with others to be draining");
+		rdbtnNewRadioButton_8.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_8 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_8.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_8.insets = new Insets(0, 0, 5, 5);
@@ -581,6 +641,7 @@ public class PersonalityTest {
 		group17.add(rdbtnNewRadioButton_8);
 
 		rdbtnNewRadioButton_5 = new JRadioButton("\"work before play\"");
+		rdbtnNewRadioButton_5.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_5 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_5.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_5.insets = new Insets(0, 0, 5, 5);
@@ -589,6 +650,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_5, gbc_rdbtnNewRadioButton_5);
 
 		rdbtnNewRadioButton_9 = new JRadioButton("\"play along the way\"");
+		rdbtnNewRadioButton_9.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_9 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_9.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_9.insets = new Insets(0, 0, 5, 5);
@@ -600,6 +662,7 @@ public class PersonalityTest {
 		group18.add(rdbtnNewRadioButton_9);
 
 		rdbtnNewRadioButton_6 = new JRadioButton("prefer to experience life here and now");
+		rdbtnNewRadioButton_6.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_6 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_6.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_6.insets = new Insets(0, 0, 5, 5);
@@ -608,6 +671,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_6, gbc_rdbtnNewRadioButton_6);
 
 		rdbtnNewRadioButton_10 = new JRadioButton("enjoy contemplating patterns and future possibilities");
+		rdbtnNewRadioButton_10.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_10 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_10.insets = new Insets(0, 0, 5, 5);
 		gbc_rdbtnNewRadioButton_10.gridx = 11;
@@ -618,6 +682,7 @@ public class PersonalityTest {
 		group19.add(rdbtnNewRadioButton_10);
 
 		rdbtnNewRadioButton_7 = new JRadioButton("objective, direct, and investigative");
+		rdbtnNewRadioButton_7.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_7 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_7.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_7.insets = new Insets(0, 0, 5, 0);
@@ -626,6 +691,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(rdbtnNewRadioButton_7, gbc_rdbtnNewRadioButton_7);
 
 		rdbtnNewRadioButton_11 = new JRadioButton("subjective, tactful, and appreciative");
+		rdbtnNewRadioButton_11.setOpaque(false);
 		GridBagConstraints gbc_rdbtnNewRadioButton_11 = new GridBagConstraints();
 		gbc_rdbtnNewRadioButton_11.insets = new Insets(0, 0, 5, 0);
 		gbc_rdbtnNewRadioButton_11.anchor = GridBagConstraints.WEST;
@@ -636,7 +702,7 @@ public class PersonalityTest {
 		group20.add(rdbtnNewRadioButton_7);
 		group20.add(rdbtnNewRadioButton_11);
 
-		btnSubmit = new JButton("SUBMIT");
+		btnSubmit = new GradientButton("SUBMIT");
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		GridBagConstraints gbc_btnSubmit = new GridBagConstraints();
 		gbc_btnSubmit.insets = new Insets(0, 0, 5, 0);
@@ -662,7 +728,7 @@ public class PersonalityTest {
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		AppUI.personalitytest.add(textfield, gbc_textfield);
 
-		btnInfo = new JButton("Test Information (Browser)");
+		btnInfo = new GradientButton("Test Information (Browser)");
 
 		btnInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -678,7 +744,7 @@ public class PersonalityTest {
 				AppUI.generalbrowser.loadHTML(fileString);
 			}
 		});
-		btnInfo.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnInfo.setFont(new Font("Tahoma", Font.BOLD, 10));
 		GridBagConstraints gbc_btnInfo = new GridBagConstraints();
 		gbc_btnInfo.insets = new Insets(0, 0, 5, 0);
 		gbc_btnInfo.gridwidth = 5;
@@ -687,8 +753,8 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(btnInfo, gbc_btnInfo);
 
 		lblNewLabel_25 = new JLabel(
-				"Retrieved from: https://personalityacademy.com/wp-content/uploads/2017/07/Printable-Personality-Quiz.pdf");
-		lblNewLabel_25.setFont(new Font("Tahoma", Font.PLAIN, 15));
+				"Retrieved from: https://personalityacademy.com/wp-content/uploads/2017/07/Printable-Personality-Quiz.pdf ");
+		lblNewLabel_25.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		GridBagConstraints gbc_lblNewLabel_25 = new GridBagConstraints();
 		gbc_lblNewLabel_25.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_25.gridwidth = 5;
@@ -697,8 +763,8 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_25, gbc_lblNewLabel_25);
 
 		lblNewLabel_26 = new JLabel(
-				"Fair Use Notice: this Personality Test part of the application contains copyrighted material the use of which has not always been specifically authorized by the copyright owner.");
-		lblNewLabel_26.setFont(new Font("Tahoma", Font.PLAIN, 15));
+				"Fair Use Notice: this Personality Test part of the application contains copyrighted material the use of which has not always been specifically authorized by the copyright owner. ");
+		lblNewLabel_26.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		GridBagConstraints gbc_lblNewLabel_26 = new GridBagConstraints();
 		gbc_lblNewLabel_26.gridwidth = 5;
 		gbc_lblNewLabel_26.insets = new Insets(0, 0, 0, 5);
@@ -707,7 +773,7 @@ public class PersonalityTest {
 		AppUI.personalitytest.add(lblNewLabel_26, gbc_lblNewLabel_26);
 
 		ColorDesign.setTestDesign();
-		
+
 	}
 
 }

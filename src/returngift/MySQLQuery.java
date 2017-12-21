@@ -48,24 +48,24 @@ public class MySQLQuery {
 		if (random == false) {
 			if (table.size() == 0) {
 				for (int i = 0; i < tablelist.length - 1; i++) {
-					query = query + "SELECT  DISTINCT item_name, item_link, price FROM " + tablelist[i] + " WHERE gender "
-							+ gender.toLowerCase() + " AND age " + age.toLowerCase() + " AND color "
+					query = query + "SELECT  DISTINCT item_name, item_link, price FROM " + tablelist[i] + " WHERE (gender = \"u\" OR gender "
+							+ gender.toLowerCase() + ") AND age " + age.toLowerCase() + " AND color "
 							+ color.toLowerCase() + " AND r_level " + rlevel.toLowerCase() + " AND c_level "
 							+ clevel.toLowerCase() + " AND price " + pricerange.toLowerCase() + " UNION ";
 				}
 				query = query + "SELECT  DISTINCT item_name, item_link, price FROM " + tablelist[tablelist.length - 1]
-						+ " WHERE gender " + gender.toLowerCase() + " AND age " + age.toLowerCase() + " AND color "
+						+ " WHERE (gender = \"u\" OR gender " + gender.toLowerCase() + ") AND age " + age.toLowerCase() + " AND color "
 						+ color.toLowerCase() + " AND r_level " + rlevel.toLowerCase() + " AND c_level "
 						+ clevel.toLowerCase() + " AND price " + pricerange.toLowerCase() + ";";
 			} else {
 				for (int i = 0; i < table.size() - 1; i++) {
-					query = query + "SELECT  DISTINCT item_name, item_link, price FROM " + table.get(i) + " WHERE gender "
-							+ gender.toLowerCase() + " AND age " + age.toLowerCase() + " AND color "
+					query = query + "SELECT  DISTINCT item_name, item_link, price FROM " + table.get(i) + " WHERE (gender = \"u\" OR gender "
+							+ gender.toLowerCase() + ") AND age " + age.toLowerCase() + " AND color "
 							+ color.toLowerCase() + " AND r_level " + rlevel.toLowerCase() + " AND c_level "
 							+ clevel.toLowerCase() + " AND price " + pricerange.toLowerCase() + " UNION ";
 				}
 				query = query + "SELECT  DISTINCT item_name, item_link, price FROM " + table.get(table.size() - 1)
-						+ " WHERE gender " + gender.toLowerCase() + " AND age " + age.toLowerCase() + " AND color "
+						+ " WHERE (gender = \"u\" OR gender " + gender.toLowerCase() + ") AND age " + age.toLowerCase() + " AND color "
 						+ color.toLowerCase() + " AND r_level " + rlevel.toLowerCase() + " AND c_level "
 						+ clevel.toLowerCase() + " AND price " + pricerange.toLowerCase() + ";";
 			}

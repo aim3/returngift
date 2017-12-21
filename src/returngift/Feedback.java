@@ -1,5 +1,7 @@
 package returngift;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -17,8 +19,8 @@ public class Feedback {
 	public void sendMail() {
 
 		String host = "smtp.mail.com";
-		final String user = "*@mail.com"; //a mail.com email address
-		final String password = "*"; //the email address's password
+		final String user = "frankiezee@null.net"; //a mail.com email address
+		final String password = "=~@N]Py{nTS!5XLD"; //the email address's password
 
 		String to = "returngift@protonmail.com";
 
@@ -27,7 +29,7 @@ public class Feedback {
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.auth", "true");
 		//props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.port", 25);
+		props.put("mail.smtp.port", 587);
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
@@ -49,13 +51,13 @@ public class Feedback {
 			//System.out.println("message sent successfully...");
 
 		} catch (MessagingException e) {
-			/*
+			
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
 			String exceptionAsString = sw.toString();
 			AppUI.feedbacktextarea.setText(exceptionAsString);
-			*/
-			AppUI.feedbacktextarea.setText("Please send all inquiries to: returngift@protonmail.com.");
+			
+			//AppUI.feedbacktextarea.setText("Please send all inquiries to: returngift@protonmail.com.");
 		}
 	}
 

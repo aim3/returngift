@@ -8,7 +8,6 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-import javax.swing.JPanel;
 
 import java.awt.Image;
 import java.awt.Insets;
@@ -22,7 +21,6 @@ import java.nio.file.Paths;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -43,7 +41,7 @@ public class AppUI implements ActionListener {
 
 	static MySQLQuery mysql_query = new MySQLQuery();
 
-	static Color light_bluish_gray = new Color(204, 199, 227);
+	static Color light_bluish_gray = new Color(198, 225, 242);
 
 	static Color dark_bluish_gray = new Color(158, 150, 196);
 
@@ -69,7 +67,7 @@ public class AppUI implements ActionListener {
 
 	JTabbedPane tabbedPane;
 
-	static JPanel account, search, browser, personalitytest, forum, feedback;
+	static GradientPanel account, search, browser, personalitytest, forum, feedback;
 
 	static JComboBox gendercombo, agecombo, personalitycombo, occasioncombo, colorcombo, ratingcombo;
 
@@ -77,7 +75,7 @@ public class AppUI implements ActionListener {
 			chckbxInterest_5, chckbxInterest_6, chckbxInterest_7, chckbxInterest_8, chckbxInterest_9, chckbxInterest_10,
 			chckbxInterest_11;
 
-	static JButton btnSearch, btnSendFeedback, btnRandomize, btnResearch, btnBack, btnForward;
+	static GradientButton btnSearch, btnSendFeedback, btnRandomize, btnResearch, btnBack, btnForward;
 
 	static JSlider rlevelslider, clevelslider, pricerangeslider;
 
@@ -120,13 +118,16 @@ public class AppUI implements ActionListener {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		Font fontIt = new Font("Tahoma", Font.ITALIC, 14);
+		Font fontBo = new Font("Tahoma", Font.BOLD, 14);
 
 		frame = new JFrame();
 		frame.setTitle("return gift;");
 		frame.getContentPane().setForeground(dark_bluish_gray);
 		frame.setForeground(dark_bluish_gray);
 		// frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.setBounds(0, 0, 1400, 910);
+		frame.setBounds(0, 0, 1380, 930);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -136,7 +137,7 @@ public class AppUI implements ActionListener {
 		tabbedPane.setForeground(Color.white);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 
-		account = new JPanel();
+		account = new GradientPanel();
 		tabbedPane.addTab("Home Page", null, account, null);
 
 		Image image = logo.getImage(); // transform it
@@ -147,7 +148,7 @@ public class AppUI implements ActionListener {
 		lblIcon = new JLabel(logo);
 		account.add(lblIcon, BorderLayout.CENTER);
 
-		search = new JPanel();
+		search = new GradientPanel();
 		tabbedPane.addTab("Search", null, search, null);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
 		gbl_panel_1.columnWidths = new int[] { 200, 0, 87, 110, 0, 87, 250, 525, 0, 0, 0, 0 };
@@ -160,7 +161,8 @@ public class AppUI implements ActionListener {
 				1.0, Double.MIN_VALUE };
 		search.setLayout(gbl_panel_1);
 
-		lblGender = new JLabel("Gender");
+		lblGender = new JLabel("Gender ");
+		lblGender.setFont(fontIt);
 		GridBagConstraints gbc_lblGender = new GridBagConstraints();
 		gbc_lblGender.gridwidth = 4;
 		gbc_lblGender.anchor = GridBagConstraints.SOUTH;
@@ -180,7 +182,8 @@ public class AppUI implements ActionListener {
 		gendercombo.addActionListener(this);
 		search.add(gendercombo, gbc_gendercombo);
 
-		lblAge = new JLabel("Age");
+		lblAge = new JLabel("Age ");
+		lblAge.setFont(fontIt);
 		GridBagConstraints gbc_lblAge = new GridBagConstraints();
 		gbc_lblAge.gridwidth = 4;
 		gbc_lblAge.insets = new Insets(0, 0, 5, 5);
@@ -201,7 +204,8 @@ public class AppUI implements ActionListener {
 		agecombo.addActionListener(this);
 		search.add(agecombo, gbc_agecombo);
 
-		lblPersonality = new JLabel("Personality");
+		lblPersonality = new JLabel("Personality ");
+		lblPersonality.setFont(fontIt);
 		GridBagConstraints gbc_lblPersonality = new GridBagConstraints();
 		gbc_lblPersonality.gridwidth = 4;
 		gbc_lblPersonality.anchor = GridBagConstraints.NORTH;
@@ -222,7 +226,8 @@ public class AppUI implements ActionListener {
 		personalitycombo.addActionListener(this);
 		search.add(personalitycombo, gbc_personalitycombo);
 
-		lblInterests = new JLabel("Interests");
+		lblInterests = new JLabel("Interests ");
+		lblInterests.setFont(fontIt);
 		GridBagConstraints gbc_lblInterests = new GridBagConstraints();
 		gbc_lblInterests.gridwidth = 4;
 		gbc_lblInterests.anchor = GridBagConstraints.NORTH;
@@ -232,6 +237,7 @@ public class AppUI implements ActionListener {
 		search.add(lblInterests, gbc_lblInterests);
 
 		chckbxInterest = new JCheckBox("Animals and Pets");
+		chckbxInterest.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest = new GridBagConstraints();
 		gbc_chckbxInterest.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest.insets = new Insets(0, 0, 5, 5);
@@ -241,6 +247,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest, gbc_chckbxInterest);
 
 		chckbxInterest_1 = new JCheckBox("Art");
+		chckbxInterest_1.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_1 = new GridBagConstraints();
 		gbc_chckbxInterest_1.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_1.insets = new Insets(0, 0, 5, 5);
@@ -250,6 +257,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_1, gbc_chckbxInterest_1);
 
 		chckbxInterest_2 = new JCheckBox("Cooking");
+		chckbxInterest_2.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_2 = new GridBagConstraints();
 		gbc_chckbxInterest_2.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_2.insets = new Insets(0, 0, 5, 5);
@@ -259,6 +267,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_2, gbc_chckbxInterest_2);
 
 		chckbxInterest_3 = new JCheckBox("Fashion and Beauty");
+		chckbxInterest_3.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_3 = new GridBagConstraints();
 		gbc_chckbxInterest_3.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_3.insets = new Insets(0, 0, 5, 5);
@@ -268,6 +277,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_3, gbc_chckbxInterest_3);
 
 		chckbxInterest_4 = new JCheckBox("Gadgets");
+		chckbxInterest_4.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_4 = new GridBagConstraints();
 		gbc_chckbxInterest_4.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_4.insets = new Insets(0, 0, 5, 5);
@@ -277,6 +287,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_4, gbc_chckbxInterest_4);
 
 		chckbxInterest_6 = new JCheckBox("Gaming");
+		chckbxInterest_6.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_6 = new GridBagConstraints();
 		gbc_chckbxInterest_6.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_6.insets = new Insets(0, 0, 5, 5);
@@ -286,6 +297,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_6, gbc_chckbxInterest_6);
 
 		chckbxInterest_5 = new JCheckBox("Gardening");
+		chckbxInterest_5.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_5 = new GridBagConstraints();
 		gbc_chckbxInterest_5.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_5.insets = new Insets(0, 0, 5, 5);
@@ -295,6 +307,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_5, gbc_chckbxInterest_5);
 
 		chckbxInterest_7 = new JCheckBox("Home Decor");
+		chckbxInterest_7.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_7 = new GridBagConstraints();
 		gbc_chckbxInterest_7.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_7.insets = new Insets(0, 0, 5, 5);
@@ -304,6 +317,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_7, gbc_chckbxInterest_7);
 
 		chckbxInterest_8 = new JCheckBox("Music");
+		chckbxInterest_8.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_8 = new GridBagConstraints();
 		gbc_chckbxInterest_8.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_8.insets = new Insets(0, 0, 5, 5);
@@ -313,6 +327,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_8, gbc_chckbxInterest_8);
 
 		chckbxInterest_9 = new JCheckBox("Reading");
+		chckbxInterest_9.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_9 = new GridBagConstraints();
 		gbc_chckbxInterest_9.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_9.insets = new Insets(0, 0, 5, 5);
@@ -322,6 +337,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_9, gbc_chckbxInterest_9);
 
 		chckbxInterest_10 = new JCheckBox("Sport");
+		chckbxInterest_10.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_10 = new GridBagConstraints();
 		gbc_chckbxInterest_10.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_10.insets = new Insets(0, 0, 5, 5);
@@ -331,6 +347,7 @@ public class AppUI implements ActionListener {
 		search.add(chckbxInterest_10, gbc_chckbxInterest_10);
 
 		chckbxInterest_11 = new JCheckBox("Toys");
+		chckbxInterest_11.setOpaque(false);
 		GridBagConstraints gbc_chckbxInterest_11 = new GridBagConstraints();
 		gbc_chckbxInterest_11.anchor = GridBagConstraints.NORTHWEST;
 		gbc_chckbxInterest_11.insets = new Insets(0, 0, 5, 5);
@@ -339,7 +356,8 @@ public class AppUI implements ActionListener {
 		chckbxInterest_11.addActionListener(this);
 		search.add(chckbxInterest_11, gbc_chckbxInterest_11);
 
-		lblOccasion = new JLabel("Occasion");
+		lblOccasion = new JLabel("Occasion ");
+		lblOccasion.setFont(fontIt);
 		GridBagConstraints gbc_lblOccasion = new GridBagConstraints();
 		gbc_lblOccasion.gridwidth = 4;
 		gbc_lblOccasion.anchor = GridBagConstraints.NORTH;
@@ -361,7 +379,8 @@ public class AppUI implements ActionListener {
 		occasioncombo.addActionListener(this);
 		search.add(occasioncombo, gbc_occasioncombo);
 
-		lblRelationshipLevel = new JLabel("Relationship Level (maximum)");
+		lblRelationshipLevel = new JLabel("Relationship Level (maximum) ");
+		lblRelationshipLevel.setFont(fontIt);
 		GridBagConstraints gbc_lblRelationshipLevel = new GridBagConstraints();
 		gbc_lblRelationshipLevel.anchor = GridBagConstraints.NORTH;
 		gbc_lblRelationshipLevel.insets = new Insets(0, 0, 5, 5);
@@ -370,7 +389,9 @@ public class AppUI implements ActionListener {
 		gbc_lblRelationshipLevel.gridy = 16;
 		search.add(lblRelationshipLevel, gbc_lblRelationshipLevel);
 
+		
 		rlevelslider = new JSlider();
+		rlevelslider.setOpaque(false);
 		rlevelslider.setMinimum(0);
 		rlevelslider.setMaximum(10);
 		rlevelslider.setValue(10);
@@ -389,7 +410,8 @@ public class AppUI implements ActionListener {
 		gbc_rlevelslider.gridy = 17;
 		search.add(rlevelslider, gbc_rlevelslider);
 
-		lblCreativityLevel = new JLabel("Creativity Level (minimum)");
+		lblCreativityLevel = new JLabel("Creativity Level (minimum) ");
+		lblCreativityLevel.setFont(fontIt);
 		GridBagConstraints gbc_lblCreativityLevel = new GridBagConstraints();
 		gbc_lblCreativityLevel.gridwidth = 4;
 		gbc_lblCreativityLevel.insets = new Insets(0, 0, 5, 5);
@@ -398,6 +420,7 @@ public class AppUI implements ActionListener {
 		search.add(lblCreativityLevel, gbc_lblCreativityLevel);
 
 		clevelslider = new JSlider();
+		clevelslider.setOpaque(false);
 		clevelslider.setMinimum(0);
 		clevelslider.setMaximum(10);
 		clevelslider.setValue(0);
@@ -416,7 +439,8 @@ public class AppUI implements ActionListener {
 		gbc_clevelslider.gridy = 19;
 		search.add(clevelslider, gbc_clevelslider);
 
-		lblColor = new JLabel("Color");
+		lblColor = new JLabel("Color ");
+		lblColor.setFont(fontIt);
 		GridBagConstraints gbc_lblColor = new GridBagConstraints();
 		gbc_lblColor.gridwidth = 4;
 		gbc_lblColor.anchor = GridBagConstraints.NORTH;
@@ -437,7 +461,8 @@ public class AppUI implements ActionListener {
 		colorcombo.addActionListener(this);
 		search.add(colorcombo, gbc_colorcombo);
 
-		lblPriceRange = new JLabel("Price in AZN (maximum)");
+		lblPriceRange = new JLabel("Price in AZN (maximum) ");
+		lblPriceRange.setFont(fontIt);
 		GridBagConstraints gbc_lblPriceRange = new GridBagConstraints();
 		gbc_lblPriceRange.gridwidth = 4;
 		gbc_lblPriceRange.anchor = GridBagConstraints.NORTH;
@@ -447,6 +472,7 @@ public class AppUI implements ActionListener {
 		search.add(lblPriceRange, gbc_lblPriceRange);
 
 		pricerangeslider = new JSlider();
+		pricerangeslider.setOpaque(false);
 		pricerangeslider.setMinimum(0);
 		pricerangeslider.setMaximum(2500);
 		pricerangeslider.setValue(1000);
@@ -490,7 +516,7 @@ public class AppUI implements ActionListener {
 
 		scrollPane.setViewportView(editorpane);
 
-		btnRandomize = new JButton("Random");
+		btnRandomize = new GradientButton("Random");
 		btnRandomize.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		GridBagConstraints gbc_btnRandomize = new GridBagConstraints();
 		gbc_btnRandomize.gridwidth = 4;
@@ -508,7 +534,7 @@ public class AppUI implements ActionListener {
 		search.add(label, gbc_label);
 		search.add(btnRandomize, gbc_btnRandomize);
 
-		btnSearch = new JButton("Search");
+		btnSearch = new GradientButton("Search");
 		btnSearch.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		GridBagConstraints gbc_btnSearch = new GridBagConstraints();
 		gbc_btnSearch.gridwidth = 4;
@@ -518,7 +544,7 @@ public class AppUI implements ActionListener {
 		btnSearch.addActionListener(this);
 		search.add(btnSearch, gbc_btnSearch);
 
-		btnResearch = new JButton("Research Methods (Browser)");
+		btnResearch = new GradientButton("Research Methods (Browser)");
 		btnResearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String fileString = "<p>Research Methods</p>";
@@ -533,7 +559,7 @@ public class AppUI implements ActionListener {
 				generalbrowser.loadHTML(fileString);
 			}
 		});
-		btnResearch.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnResearch.setFont(new Font("Tahoma", Font.BOLD, 10));
 		GridBagConstraints gbc_button = new GridBagConstraints();
 		gbc_button.gridwidth = 4;
 		gbc_button.insets = new Insets(0, 0, 5, 5);
@@ -541,7 +567,7 @@ public class AppUI implements ActionListener {
 		gbc_button.gridy = 29;
 		search.add(btnResearch, gbc_button);
 
-		browser = new JPanel();
+		browser = new GradientPanel();
 		tabbedPane.addTab("Browser", null, browser, null);
 		browser.setLayout(new BorderLayout(0, 0));
 
@@ -549,7 +575,7 @@ public class AppUI implements ActionListener {
 
 		// generalbrowser.loadURL("https://www.google.com/ncr");
 
-		personalitytest = new JPanel();
+		personalitytest = new GradientPanel();
 		tabbedPane.addTab("Personality Test", null, personalitytest, null);
 		GridBagLayout gbl_personalitytest = new GridBagLayout();
 		gbl_personalitytest.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -563,13 +589,13 @@ public class AppUI implements ActionListener {
 
 		PersonalityTest.personalityTest();
 
-		forum = new JPanel();
+		forum = new GradientPanel();
 		tabbedPane.addTab("Forum", null, forum, null);
 		forum.setLayout(new BorderLayout(0, 0));
 
 		forum.add(view2, BorderLayout.CENTER);
 
-		btnBack = new JButton("Back");
+		btnBack = new GradientButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				forumbrowser.goBack();
@@ -577,7 +603,7 @@ public class AppUI implements ActionListener {
 		});
 		forum.add(btnBack, BorderLayout.NORTH);
 		
-		btnForward = new JButton("Forward");
+		btnForward = new GradientButton("Forward");
 		btnForward.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				forumbrowser.goForward();
@@ -587,7 +613,7 @@ public class AppUI implements ActionListener {
 
 		forumbrowser.loadURL("https://returngift.wixsite.com/mysite/forum/gift-recommendations");
 
-		feedback = new JPanel();
+		feedback = new GradientPanel();
 		tabbedPane.addTab("Feedback", null, feedback, null);
 		GridBagLayout gbl_feedback = new GridBagLayout();
 		gbl_feedback.columnWidths = new int[] { 0, 0, 0, 0, 0 };
@@ -599,13 +625,15 @@ public class AppUI implements ActionListener {
 		feedback.setLayout(gbl_feedback);
 
 		lblFeedback = new JLabel("Feedback");
+		lblFeedback.setFont(new Font("Tahoma", Font.BOLD, 26));
 		GridBagConstraints gbc_lblFeedback = new GridBagConstraints();
 		gbc_lblFeedback.insets = new Insets(0, 0, 5, 5);
 		gbc_lblFeedback.gridx = 2;
 		gbc_lblFeedback.gridy = 0;
 		feedback.add(lblFeedback, gbc_lblFeedback);
 
-		lblRating = new JLabel("Rating");
+		lblRating = new JLabel("Rating ");
+		lblRating.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		GridBagConstraints gbc_lblRating = new GridBagConstraints();
 		gbc_lblRating.insets = new Insets(0, 0, 5, 5);
 		gbc_lblRating.gridx = 2;
@@ -636,7 +664,7 @@ public class AppUI implements ActionListener {
 
 		scrollPane_1.setViewportView(feedbacktextarea);
 
-		btnSendFeedback = new JButton("Send Feedback");
+		btnSendFeedback = new GradientButton("Send Feedback");
 		btnSendFeedback.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		GridBagConstraints gbc_btnSendFeedback = new GridBagConstraints();
 		gbc_btnSendFeedback.insets = new Insets(0, 0, 0, 5);

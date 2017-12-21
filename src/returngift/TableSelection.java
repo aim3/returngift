@@ -44,27 +44,39 @@ public class TableSelection {
 	public static void getInterest() {
 		if (AppUI.chckbxInterest.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_animals_and_pets");
-		} else if (AppUI.chckbxInterest_1.isSelected()) {
+		} 
+	
+		if (AppUI.chckbxInterest_1.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_art");
-		} else if (AppUI.chckbxInterest_2.isSelected()) {
+		} 
+		if (AppUI.chckbxInterest_2.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_cooking");
-		} else if (AppUI.chckbxInterest_3.isSelected()) {
+		}
+		if (AppUI.chckbxInterest_3.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_fashion_and_beauty");
-		} else if (AppUI.chckbxInterest_4.isSelected()) {
+		}
+		if (AppUI.chckbxInterest_4.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_gadgets");
-		} else if (AppUI.chckbxInterest_5.isSelected()) {
+		} 
+		if (AppUI.chckbxInterest_5.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_gardening");
-		} else if (AppUI.chckbxInterest_6.isSelected()) {
+		}
+		if (AppUI.chckbxInterest_6.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_gaming");
-		} else if (AppUI.chckbxInterest_7.isSelected()) {
+		} 
+		if (AppUI.chckbxInterest_7.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_home_decor");
-		} else if (AppUI.chckbxInterest_8.isSelected()) {
+		} 
+		if (AppUI.chckbxInterest_8.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_music");
-		} else if (AppUI.chckbxInterest_9.isSelected()) {
+		} 
+		if (AppUI.chckbxInterest_9.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_reading");
-		} else if (AppUI.chckbxInterest_10.isSelected()) {
+		}
+		if (AppUI.chckbxInterest_10.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_sport");
-		} else if (AppUI.chckbxInterest_11.isSelected()) {
+		}
+		if (AppUI.chckbxInterest_11.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_toys");
 		}
 	}
