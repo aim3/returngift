@@ -19,8 +19,8 @@ public class Feedback {
 	public void sendMail() {
 
 		String host = "smtp.mail.com";
-		final String user = "frankiezee@null.net"; //a mail.com email address
-		final String password = "=~@N]Py{nTS!5XLD"; //the email address's password
+		final String user = ""; //a mail.com email address
+		final String password = ""; //the email address's password
 
 		String to = "returngift@protonmail.com";
 
