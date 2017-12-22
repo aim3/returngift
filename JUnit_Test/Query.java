@@ -1,4 +1,4 @@
-package returngift;
+
 
 import java.util.ArrayList;
 
@@ -76,7 +76,7 @@ public class Query {
 					+ " AND c_level is not null AND price is not null  ORDER BY RAND() LIMIT 1;";
 
 		}
-	
+		
 		return query;
 		
 	}
