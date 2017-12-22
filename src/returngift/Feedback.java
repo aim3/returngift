@@ -19,8 +19,8 @@ public class Feedback {
 	public void sendMail() {
 
 		String host = "smtp.mail.com";
-		final String user = "frankiezee@null.net"; //a mail.com email address
-		final String password = "=~@N]Py{nTS!5XLD"; //the email address's password
+		final String user = ""; //a mail.com email address
+		final String password = ""; //the email address's password
 
 		String to = "returngift@protonmail.com";
 
@@ -29,7 +29,7 @@ public class Feedback {
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.auth", "true");
 		//props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.port", 587);
+		props.put("mail.smtp.port", 25);
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {

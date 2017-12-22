@@ -5,8 +5,12 @@ public class TableSelection {
 	public static void getOccasion() {
 
 		String item = AppUI.occasioncombo.getSelectedItem().toString();
+		
+		if(!AppUI.mysql_query.table_o.isEmpty())
+		AppUI.mysql_query.table_o.clear();
 
 		if (item.equals("Select an occasion")) {
+			if(!AppUI.mysql_query.table_o.isEmpty())
 			AppUI.mysql_query.table_o.clear();
 		} else if (item.equals("Christmas"))
 			AppUI.mysql_query.table_o.add("OCCASION_christmas");
@@ -28,8 +32,12 @@ public class TableSelection {
 	public static void getPersonalityType() {
 
 		String item = AppUI.personalitycombo.getSelectedItem().toString();
+		
+		if(!AppUI.mysql_query.table_p.isEmpty())
+		AppUI.mysql_query.table_p.clear();
 
 		if (item.equals("Select a personality type")) {
+			if(AppUI.mysql_query.table_p.isEmpty())
 			AppUI.mysql_query.table_p.clear();
 		} else if (item.equals("Mover"))
 			AppUI.mysql_query.table_p.add("PERSONALITY_TYPE_mover");
@@ -42,6 +50,10 @@ public class TableSelection {
 	}
 
 	public static void getInterest() {
+		
+		if(!AppUI.mysql_query.table.isEmpty())
+		AppUI.mysql_query.table.clear();
+		
 		if (AppUI.chckbxInterest.isSelected()) {
 			AppUI.mysql_query.table.add("INTEREST_animals_and_pets");
 		} 

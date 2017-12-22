@@ -15,7 +15,7 @@ public class AppOptionInput {
 		TableSelection.getOccasion();
 		TableSelection.getPersonalityType();
 		
-		AppUI.mysql_query.getCategoryList(false);
+		AppUI.mysql_query.sendQuery(false);
 
 	}
 
@@ -32,7 +32,7 @@ public class AppOptionInput {
 
 	public static void third_button() {
 
-		AppUI.mysql_query.getCategoryList(true);
+		AppUI.mysql_query.sendQuery(true);
 
 	}
 
